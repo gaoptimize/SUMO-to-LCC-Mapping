@@ -1,5 +1,16 @@
 # LCC ⇄ SUMO: hole register
 
+> **Erratum (30 October 2026).** On re-checking §4 against SUMO commit `8bb7a9c` (whose `Merge.kif`, `Mid-level-ontology.kif`, `People.kif` and `Economy.kif` are identical to `2b55bb5`), four of the seven listed defects do not hold as stated:
+>
+> - **D2 is withdrawn.** `Bahaism` is an instance of `BeliefGroup` (`People.kif` l.783); `Bahai` is the adherent attribute, parallel to `Buddhist`. SUMO is consistent. Only a typo remains (l.789, "fo").
+> - **D3 is a design choice, not a defect.** Treating engineering as applied science is defensible; it matters only to a mapping that must separate LCC Q from T.
+> - **D4 is reduced to a typo.** The class is used in axioms (e.g. `heartRate`, `Mid-level-ontology.kif` l.14895). The garbled documentation ("Collectionsthat", `Merge.kif` l.1625) stands.
+> - **D5 is withdrawn.** `InheritableRelation` and `RelationExtendedToQuantities` are meta-classes by design. They belong under §1a (too abstract to shelve, no fault).
+>
+> **D1, D6 and D7 stand.** D6 and D7 are restated more precisely in the revised table below. The original §4 table is kept below the revised one for the record.
+>
+> **Coverage figures are unaffected.** D4–D6 were already excluded from coverage as no-fault rows, and none of D1–D7 changed a mapping row. These corrections concern our reading of SUMO, not upstream changes.
+
 Companion to `merged_mapping.md`. Four kinds of entry, so that no hole is blamed on the wrong side.
 
 ## 1. No-fault: granularity and form mismatches (mirror images)
@@ -38,6 +49,8 @@ The two advocates converged on this framing in round 2. SUMO has formal machiner
 | `Detaching` | 4 | TJ / TS (unverified) |
 | `Substituting` | 4 | HF (pointer only); false friend for economic substitution |
 
+The erratum also reclassifies `InheritableRelation` and `RelationExtendedToQuantities` (formerly D5) here as no-fault meta-classes. They were already excluded from coverage; the reported coverage totals are unchanged.
+
 ### 1b. LCC side: form, audience and notational units
 
 | LCC | Why no ontology should model it |
@@ -67,7 +80,21 @@ The SUMO advocate initially conceded small LCC gaps (general action theory; mere
 | G8 | SUMO gap | No musicology discipline: `Music` [MILO] is a `Proposition` (the work), not a FieldOfStudy. | Add `Musicology` as a FieldOfStudy subclass. | coordinator (from SUMO critique row ML) | ML, MT |
 | G9 | SUMO gap (low priority) | Reference forms: no `Encyclopedia`, bibliographic `Index`, `Yearbook`, `Almanac`, `Directory`, `Textbook` classes. | Add under `FactualText` → `ReferenceBook` [MILO]. | both (LCC H1, SUMO §3) | AE, AI, AY |
 
-## 4. SUMO defects to report upstream
+## 4. SUMO defects to report upstream (revised 30 October 2026)
+
+| ID | Class | Status at `8bb7a9c` | Defect |
+|---|---|---|---|
+| D1 | `TrichotomizingRelation` | **Stands** | The documentation (`Merge.kif` l.3031–3036) says all ordered pairs of distinct individuals are in the relation. The axiom (l.3038ff) requires exactly one of R(x,y), x=y, R(y,x). |
+| D2 | `Bahai` | **Withdrawn** | Our error: `Bahai` is the adherent attribute, and `Bahaism` is the `BeliefGroup`. Typo "fo" at `People.kif` l.789. |
+| D3 | `Engineering` [MILO] | **Design choice** | `(subclass Engineering Science)` (l.30239) is defensible. It only prevents separating LCC Q from T. |
+| D4 | `CollectionOfProcesses` | **Typo only** | The documentation reads "a Collectionsthat has" (`Merge.kif` l.1625). The class is used in axioms. |
+| D5 | `InheritableRelation`, `RelationExtendedToQuantities` | **Withdrawn** | Meta-classes by design. Moved to §1a (no fault). |
+| D6 | `Sensing` / `SingleAgentProcess` | **Stands (restated)** | The `Sensing` documentation admits a non-biological `Object` as sensor. But `Sensing` ⊂ `SingleAgentProcess` requires an `agent`, and `(domain agent 2 AutonomousAgent)` means only an `AutonomousAgent` can be one. A thermometer cannot be the sensor. |
+| D7 | `Communism` [Economy] | **Stands (restated)** | The documentation calls it "a political theory", but `(subclass Communism BeliefGroup)` makes it a `GroupOfPeople`. Sharing a parent with the religions was not the defect. |
+
+### As first published
+
+The following table is retained as originally published; the revised statuses above supersede it.
 
 Found while mapping; each is checked against commit `2b55bb5`.
 
