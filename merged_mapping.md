@@ -1,5 +1,18 @@
 # LCC ⇄ SUMO: merged two-way mapping (normalized)
 
+> **Erratum 2 (2 November 2026).** Four rows through depth 4 were corrected after the depth-5 continuation re-examined them:
+>
+> - **`Motion` → QC120-168.85: `exact` → `partial`.** Each side extends beyond the other. SUMO `Motion` includes weather processes and radiating processes. LCC's descriptive and experimental mechanics includes statics (bodies at rest).
+> - **`Radiating` → QC474-496.9: `exact` → `partial`.** Each side extends beyond the other. Through its subclasses, `Radiating` includes `RadiatingSound` and `Explosion` (chemical). Radiation physics (General) also covers propagation and effects on matter, not only emission and absorption. The `Radiating` documentation (electromagnetic only) conflicts with those subclasses; this is recorded for upstream reporting.
+> - **`BodyMotion`, dance range:** "GV1580-1799 (unverified)" is **GV1580-1799.4 Dancing** in the outline.
+> - **`Meteoroid`: "QB740-755 (unverified)" is not an outline row.** The finest outline unit is **QB500.5-785 Solar system**, so the relation changes from `exact` to **`narrower`**. Per [LC Subject Headings](https://www.loc.gov/aba/publications/FreeLCSH/M.pdf), Meteoroids class at QB738 and Meteorites at QB754.8-759.
+>
+> SUMO → LCC relation counts: exact 44 → 41, narrower 18 → 19, partial 73 → 75 (broader 13 and none 31 unchanged). Mapped coverage: 75 → 73 of 148.
+
+Erratum 2 credits: E1 was found independently by OpenAI GPT-6 Astra and xAI Grok 4.7; E2 by a Claude seat; E3 by Astra; E4 by Astra and Grok. Anthropic Claude Opus 5.5 verified and revised the erratum after OpenAI Codex's review. Human Advisor: Thomas Mark Schaefer.
+
+<!-- modsource: codex_erratum2_publish_20261102 -->
+
 **Built from:** the LCC Advocate and SUMO Advocate drafts (round 1) and their cross-critiques (round 2). Every row records where its value came from.
 
 | Item | Value |
@@ -64,17 +77,17 @@ Both critiques proposed six rules independently. They match closely; the merged 
 |---|---|---|
 | Too abstract to shelve (granularity, no fault, pointer given) | 27 | excluded |
 | SUMO misfit (ontology-engineering classes, no fault on LCC) | 4 | excluded |
-| **Mapped** (exact / broader / narrower), excluding no-fault | 75 of 148 | **51%** |
+| **Mapped** (exact / broader / narrower), excluding no-fault | 73 of 148 | **49%** |
 | Mapped or partial, excluding no-fault | 148 of 148 | 100% |
 | Mapped or partial, including no-fault rows | 148 of 179 | 83% |
 | Real LCC gaps | 0 | see `hole_register.md` §2 |
 
 | Relation | Count |
 |---|---|
-| exact | 44 |
+| exact | 41 |
 | broader | 13 |
-| narrower | 18 |
-| partial | 73 |
+| narrower | 19 |
+| partial | 75 |
 | none | 31 |
 
 **Reading the numbers.** The two directions are not symmetric and should not be. Every non-trivial SUMO top-level class has *some* LCC shelf at coarse granularity, so SUMO → LCC is nearly complete. LCC → SUMO is limited at depth 4 because the top of SUMO cannot tell disciplines apart; the Discipline slot (MILO) and the facets carry that information, and its real holes are content-side (religion, literary works) and instance-side (historical regions, peoples).
@@ -375,7 +388,7 @@ Prov. codes: M SUMO draft · A agreed · SS SUMO self-correction · Lc LCC criti
 | `IntentionalRelation` | 3 | BF (Psychology) | BD143-237 (Epistemology); B (philosophy of mind) | partial | partial | M | Relations between an agent and the objects of its attitudes - philosophy of mind/intentionality. |
 | `InternalAttribute` | 3 | BD300-450 (Ontology: intrinsic properties) | QC170-197 | partial | partial | M | Intrinsic properties as an ontological category. |
 | `InternalChange` | 3 | BD493-701 (Cosmology: change) | QD; QH | partial | partial | M | Change internal to an object; studied generically in philosophy of change, specifically in chemistry/biology. |
-| `Motion` | 3 | QC120-168.85 (Mechanics) | QA801-939 (Analytic mechanics); BD493-701 | exact | mapped | M | Motion is the object of mechanics. Note SUMO Motion is broader (includes weather, radiation) than LCC mechanics. |
+| `Motion` | 3 | QC120-168.85 (Mechanics) | QA801-939 (Analytic mechanics); BD493-701 | partial | partial | M | Overlap: SUMO Motion includes weather and radiating processes; descriptive and experimental mechanics also includes statics (bodies at rest). |
 | `NaturalProcess` | 3 | Q (Science); QH | QC; QE | partial | partial | A | Both critiques: partial. |
 | `PartialValuedRelation` | 3 | — (pointer) QA (partial recursive functions; range unverified) | — | none | granularity | A+Lc | Too abstract to shelve: no LCC unit is about one such class. No fault; excluded from coverage. |
 | `Predicate` | 3 | BC (Logic: predicate logic) | QA9 mathematical logic (unverified range) | exact | mapped | M | Predicates are the subject of predicate logic. |
@@ -405,7 +418,7 @@ Prov. codes: M SUMO draft · A agreed · SS SUMO self-correction · Lc LCC criti
 | `BinaryPredicate` | 4 | BC (Logic) | QA | narrower | mapped | M | Two-place predicates; logic of relations. |
 | `BiologicalAttribute` | 4 | QH301-705.5 (Biology) | RB (Pathology); QP | partial | partial | M | Biological properties (disease, sex, developmental stage) - biology, pathology. |
 | `BiologicalProcess` | 4 | QH301-705.5 (Biology); QP (Physiology) | RB (Pathology); BF (Psychology) | exact | mapped | M | Life processes - biology/physiology; PathologicProcess -> RB; PsychologicalProcess -> BF (depth 5). |
-| `BodyMotion` | 4 | QP (Physiology: movement) | GV (Sports); GV1580-1799 dance (unverified) | partial | partial | M | Bodily movement - physiology/kinesiology, dance, sport. |
+| `BodyMotion` | 4 | QP (Physiology: movement) | GV (Sports); GV1580-1799.4 (Dancing) | partial | partial | M | Bodily movement - physiology/kinesiology, dance, sport. |
 | `CaseRole` | 4 | P (Linguistics: syntax/semantics) | P325-325.5 (Semantics); BC | partial | partial | M | Thematic/case roles (agent, patient) are a linguistic-semantic notion (Fillmore case grammar). |
 | `ChemicalProcess` | 4 | QD (Chemistry) | TP (Chemical technology) | exact | mapped | M | Chemical reactions are the subject of chemistry; industrial ones of TP. |
 | `ClosedWorldPredicate` | 4 | — (pointer) QA75.5-76.95 | — | none | granularity | A+Lc | Too abstract to shelve: no LCC unit is about one such class. No fault; excluded from coverage. |
@@ -453,7 +466,7 @@ Prov. codes: M SUMO draft · A agreed · SS SUMO self-correction · Lc LCC criti
 | `Maintaining` | 4 | S (Agriculture) | TX (cleaning); UC; VC | broader | mapped | Lc | MILO children `Agriculture`, `Cleaning`, `Protecting`; S is the dominant home. |
 | `Making` | 4 | TS (Manufactures) | TH; TT; TX (cooking); NB (sculpture) | broader | mapped | Lc+A | SUMO side conceded the lumping in A9; children include `Cooking`, `Constructing`, `Weaving`, `Sculpting`. |
 | `Maneuver` | 4 | U164-167.5 (Tactics) | GV (Sports: tactics); GV1199-1570 (Games) | partial | partial | M | Moves within a Contest - tactics in war, sport and games. |
-| `Meteoroid` | 4 | QB (Astronomy: meteors, meteorites; QB740-755 unverified) | QE (meteorites) | exact | mapped | M | Meteoroids - descriptive astronomy of the solar system. |
+| `Meteoroid` | 4 | QB500.5-785 (Solar system; LCSH: Meteoroids QB738, Meteorites QB754.8-759) | QE (meteorites) | narrower | mapped | M | Meteoroids are a narrower subject within the Solar system outline unit. Specific LCSH class references distinguish meteoroids (QB738) and meteorites (QB754.8-759). |
 | `MotionDownward` | 4 | QC120-168.85 (Mechanics: falling bodies) | - | narrower | mapped | M | Downward motion - mechanics of falling bodies. |
 | `MotionUpward` | 4 | QC120-168.85 (Mechanics) | - | narrower | mapped | M | Upward motion - mechanics. |
 | `MultiGraph` | 4 | QA164-167 (graph theory; unverified) | - | narrower | mapped | M | Specific graph type. |
@@ -485,7 +498,7 @@ Prov. codes: M SUMO draft · A agreed · SS SUMO self-correction · Lc LCC criti
 | `QuaternaryFunction` | 4 | — (pointer) QA150-272.5 | — | none | granularity | A+Lc | Too abstract to shelve: no LCC unit is about one such class. No fault; excluded from coverage. |
 | `QuaternaryPredicate` | 4 | — (pointer) BC | — | none | granularity | A+Lc | Too abstract to shelve: no LCC unit is about one such class. No fault; excluded from coverage. |
 | `QuintaryPredicate` | 4 | — (pointer) BC | — | none | granularity | A+Lc | Too abstract to shelve: no LCC unit is about one such class. No fault; excluded from coverage. |
-| `Radiating` | 4 | QC474-496.9 (Radiation physics) | QC350-467 (Optics); QC221-246 (Acoustics: RadiatingSound is a child); TK (radio) | exact | mapped | M | Emission/absorption of radiation. |
+| `Radiating` | 4 | QC474-496.9 (Radiation physics) | QC350-467 (Optics); QC221-246 (Acoustics: RadiatingSound is a child); TK (radio) | partial | partial | M | Overlap: emission/absorption, including sound and chemical explosions through subclasses; radiation physics also covers propagation and effects on matter. The electromagnetic-only documentation conflicts with the subclasses. |
 | `RecreationOrExercise` | 4 | GV (Recreation. Leisure) | GV557-1198.995 (Sports); GV1199-1570 (Games); RA (exercise, hygiene) | exact | mapped | M | Recreation and exercise - GV. |
 | `ReflexiveRelation` | 4 | — (pointer) BC; QA150-272.5 | — | none | granularity | A+Lc | Too abstract to shelve: no LCC unit is about one such class. No fault; excluded from coverage. |
 | `Repairing` | 4 | TS (repair; unverified) | TJ1125-1345 (Machine shops); TL (vehicle maintenance); TX955-985 | partial | partial | M | Repair processes - scattered by object repaired. |

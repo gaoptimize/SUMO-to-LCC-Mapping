@@ -16,6 +16,7 @@ hole_register.md  - Gaps, granularity mismatches, defects, and false friends.
 debate_log.md     - Advocate discussions, concessions, and coordinator rulings.
 
 Erratum 2026-10-30: four of the seven SUMO defects in hole_register.md §4 were revised after re-checking against SUMO commit 8bb7a9c. See the note at the top of that file.
+Erratum 2 (2026-11-02): four rows through depth 4 corrected (three relation labels, two cited ranges); mapped SUMO-to-LCC coverage revised from 51% to 49%. See the note at the top of merged_mapping.md.
 
 The mapping covers SUMO's top-level subclass tree through depth 4 and
 the LCC classification outlines. Source versions and verification details
@@ -28,4 +29,4 @@ This project's original mapping documents are released under the MIT License.
 See LICENSE for the complete terms. Referenced third-party source materials
 retain their respective licenses.
 
-modsource: codex_github_publish_20261030
+modsource: codex_github_publish_20261030; codex_erratum2_publish_20261102
